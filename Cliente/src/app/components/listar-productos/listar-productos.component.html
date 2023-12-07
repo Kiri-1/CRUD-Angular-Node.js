@@ -22,8 +22,8 @@
                                 <td>{{producto.ubicacion}}</td>
                                 <td>{{producto.precio | currency: 'USD'}}</td>
                                 <td>
-                                    <i [routerLink]="['/editar-producto', producto.id ]" class='bx bxs-edit text-primary'></i>
-                                    <i (click)="eliminarProducto(producto.id)" class='bx bxs-trash text-danger'></i>
+                                    <i [routerLink]="['/editar-producto', producto._id ]" class='bx bxs-edit text-primary'></i>
+                                    <i (click)="eliminarProducto(producto._id)" class='bx bxs-trash text-danger'></i>
                                 </td>
                             </tr>
                         </tbody>
