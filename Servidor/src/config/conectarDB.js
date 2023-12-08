@@ -7,9 +7,9 @@ const conectarDB = async () => {
         })
         console.log('BD Conectada');
 
-    } catch(error){
-            console.log(error);
-            process.exit(1);
-        }
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
 };
 exports.conectarDB = conectarDB;
