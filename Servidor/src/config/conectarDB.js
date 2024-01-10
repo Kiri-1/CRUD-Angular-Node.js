@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const conectarDB = async () => {
 
     try {
-        await mongoose.connect('mongodb://localhost/crud-mean', {
+        await mongoose.connect(process.env.DB_MONGO, {
         })
         console.log('BD Conectada');
 
