@@ -11,7 +11,9 @@ import { ProductoService } from 'src/app/service/producto.service';
 })
 export class ListarProductosComponent implements OnInit {
 
-  listarProductos: Producto[]=[];
+  listarProductos: Producto[] = [];
+  productosFiltrados: Producto[] = [];
+  terminoBusqueda: string = '';
 
   constructor(private productoService: ProductoService, 
     private toastr: ToastrService){ }
@@ -22,8 +24,8 @@ export class ListarProductosComponent implements OnInit {
 
   obtenerProductos(){
     this.productoService.getProductos().subscribe(data =>{
-      console.log(data);
-      this.listarProductos=data;
+      this.listarProductos = data;
+      this.productosFiltrados = [...this.listarProductos];
     }, error =>{
       console.log(error);
     })
@@ -31,10 +33,23 @@ export class ListarProductosComponent implements OnInit {
 
   eliminarProducto(id: any){
     this.productoService.eliminarProducto(id).subscribe(data =>{
-      this.toastr.error('El producto fue eliminado con exito','Producto eliminado');
+      this.toastr.error('El producto fue eliminado con éxito','Producto eliminado');
       this.obtenerProductos();
     }, error => {
       console.log(error);
     })
+  }
+
+  buscarProducto() {
+    if (!this.terminoBusqueda || this.terminoBusqueda === '') {
+      this.listarProductos = [...this.productosFiltrados];
+      return;
+    }
+  
+    this.listarProductos = this.productosFiltrados.filter(producto =>
+      producto.nombre.toLowerCase().includes(this.terminoBusqueda.toLowerCase()) ||
+      producto.categoria.toLowerCase().includes(this.terminoBusqueda.toLowerCase()) ||
+      producto.ubicacion.toLowerCase().includes(this.terminoBusqueda.toLowerCase())
+    );
   }
 }

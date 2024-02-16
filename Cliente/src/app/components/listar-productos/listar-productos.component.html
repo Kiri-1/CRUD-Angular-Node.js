@@ -2,15 +2,27 @@
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
+                <span class="titulo text-center"><b>LISTADO DE PRODUCTOS</b></span>
                 <div class="card-body text-center">
-                    <span class="titulo"><b>LISTADO DE PRODUCTOS</b></span>
                     <button class="btn btn-outline-success float-end" routerLink="/crear-producto">NUEVO</button>
+
+                    <form>
+                        <div class="input__container input__container--variant">
+                            <div class="shadow__input shadow__input--variant"></div>
+                            <input type="text" name="text" class="input__search input__search--variant"
+                                [(ngModel)]="terminoBusqueda" placeholder="Buscar...">
+                            <button type="button" class="btn btn-outline-dark" (click)="buscarProducto()">
+                                <i class='bx bx-search-alt'></i>
+                            </button>
+                        </div>
+                    </form>
+
                     <table *ngIf="listarProductos.length > 0" class="table table-striped mt-3">
                         <thead>
                             <tr>
                                 <th class="titulos" scope="col">Producto</th>
                                 <th class="titulos" scope="col">Categoria</th>
-                                <th class="titulos" scope="col">Ubicacion</th>
+                                <th class="titulos" scope="col">Cantidad</th>
                                 <th class="titulos" scope="col">Precio</th>
                                 <th class="titulos" scope="col"></th>
                             </tr>
@@ -22,13 +34,16 @@
                                 <td>{{producto.ubicacion}}</td>
                                 <td>{{producto.precio | currency: 'USD'}}</td>
                                 <td>
-                                    <i [routerLink]="['/editar-producto', producto._id ]" class='bx bxs-edit text-primary'></i>
-                                    <i (click)="eliminarProducto(producto._id)" class='bx bxs-trash text-danger'></i>
+                                    <i [routerLink]="['/editar-producto', producto._id ]"
+                                        class='bx edit bxs-edit text-primary'></i>
+                                    <i (click)="eliminarProducto(producto._id)"
+                                        class='bx edit bxs-trash text-danger'></i>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listarProductos.length == 0">No hay productos para mostrar</h5>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listarProductos.length == 0">No hay
+                        productos para mostrar</h5>
                 </div>
             </div>
         </div>

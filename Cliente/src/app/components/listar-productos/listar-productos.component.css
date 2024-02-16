@@ -1,8 +1,95 @@
-.titulos{
-    background-color:rgb(233, 227, 220) !important;
+.titulos {
+  background-color: #edebe9 !important;
 }
 
-.bx{
-    cursor: pointer;
-    margin-left: 15px;
+.card{
+  background-color: #f6f4f0 !important;
+}
+
+.bx {
+  margin-top: 3px;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.btn-outline-dark{
+  width: 50%;
+}
+
+.btn-outline-dark:hover{
+  background-color: rgb(88, 88, 88);
+  
+}
+
+.edit {
+  margin-right: 15px;
+}
+
+.edit:hover {
+  background-color: rgb(189, 189, 189);
+}
+
+.card-body {
+  background: #f6f4f0; 
+
+}
+
+.input__container--variant {
+  background: #d5e6e0cb;
+  border-radius: 10px;
+  max-width: 13em;
+  padding: 2em 2em;
+}
+
+.input__search--variant {
+  width: 10em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13em;
+  outline: none;
+  border: none;
+  padding: 0.8em;
+  font-size: 1.2em;
+  color: #002019;
+  background-color: transparent;
+}
+
+.input__search--variant::placeholder {
+  color: #001c3b;
+  opacity: 0.7;
+}
+
+.input__container--variant {
+  max-width: 15em;
+  padding: 2em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+@media only screen and (max-width: 600px) {
+  /* Cambiar a un diseño de filas apiladas en pantallas pequeñas */
+  table, thead, tbody, th, td, tr {
+      display: block;
+  }
+  th, td {
+      text-align: center;
+  }
+  /* Ocultar la etiqueta de encabezado */
+  thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+  }
+  tr { border: 1px solid #ccc; }
+  td {
+      /* Establecer el ancho al 100% */
+      width: 100%;
+  }
 }

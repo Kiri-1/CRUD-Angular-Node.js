@@ -2,3 +2,12 @@
     text-align: start;
     margin-left: 7px;
 }
+
+.card-body {
+    background: #f6f4f0;
+
+}
+
+.form-control{
+    background-color: rgb(246, 250, 255);
+}

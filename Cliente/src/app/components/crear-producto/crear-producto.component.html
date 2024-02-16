@@ -27,10 +27,10 @@
                         <div class="mb-3">
                             <input type="text" 
                             formControlName="ubicacion"
-                            class="form-control form-control-lg" placeholder="Ubicacion">
+                            class="form-control form-control-lg" placeholder="Cantidad">
                             <div class="text-danger"
                             *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched" >
-                                <span>La ubicacion <strong>es obligatorio</strong></span>
+                                <span>La cantidad <strong>es obligatorio</strong></span>
                             </div>
                         </div>
 
